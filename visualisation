@@ -1,0 +1,34 @@
+from google.colab import files
+uploaded=files.upload()
+import pandas as pd
+import io
+import matplotlib.pyplot as plt
+data=pd.read_csv(io.BytesIO(uploaded['iris.csv']))
+data
+data.dtypes
+plt.hist(data['SepalLengthCm'],bins=10,edgecolor='k',alpha=0.7)
+plt.xlabel('Sepal Length Cm')
+plt.ylabel('Frwquency')
+plt.title('Histogram of Sepal length')
+plt.show()
+plt.hist(data['SepalWidthCm'],bins=10,edgecolor='k',alpha=0.7)
+plt.xlabel('Sepal Width Cm')
+plt.ylabel('Frwquency')
+plt.title('Histogram of Sepal Width')
+plt.show()
+plt.hist(data['PetalWidthCm'],bins=10,edgecolor='k',alpha=0.7)
+plt.xlabel('Petal Width Cm')
+plt.ylabel('Frwquency')
+plt.title('Histogram of Petal Width')
+plt.show()
+plt.hist(data['PetalLengthCm'],bins=10,edgecolor='k',alpha=0.7)
+plt.xlabel('Petal Length Cm')
+plt.ylabel('Frequency')
+plt.title('Histogram of Petal length')
+plt.show()
+species_count=data['Species'].value_counts()
+plt.bar(species_count.index,species_count.values)
+plt.xlabel('Species')
+plt.ylabel('Frequency')
+plt.title('Distribution of Species')
+plt.show()
